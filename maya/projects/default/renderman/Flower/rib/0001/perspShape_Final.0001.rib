@@ -1,0 +1,266 @@
+##RenderMan RIB
+#Created by RenderMan for Maya 21.6 (@1803412 Nov 14 2017)
+#Thu Jan 18 12:37:06 PM Mountain Standard Time 2018
+version 3.04
+Option "ribparse" "string varsubst" [""]
+Option "ribparse" "string varsubst" ["$"]
+IfBegin "!defined(RMSPROJ_FROM_ENV)" 
+	Option "user" "string RMSPROJ" ["C:/Users/elven/Documents/maya/projects/default/"]
+IfEnd 
+IfBegin "!defined(RMSTREE)" 
+	Option "user" "string RMSTREE" ["C:/Program Files/Pixar/RenderManForMaya-21.6-maya2018/"]
+IfEnd 
+Option "searchpath" "string resource" ["${RMSPROJ}:@"]
+Option "searchpath" "string archive" ["${RMSPROJ}:."]
+Option "searchpath" "string display" ["${RMSTREE}/bin:@"]
+Option "searchpath" "string shader" ["${RMSPROJ}:${RMSTREE}/lib/shaders/:${RMANTREE}/lib/shaders:@"]
+Option "searchpath" "string texture" ["${RMSPROJ}:${RMSTREE}/lib/textures/:@"]
+Option "searchpath" "string rixplugin" ["${RMSTREE}/lib/shaders/:@"]
+Option "searchpath" "string dirmap" [""]
+Option "searchpath" "string rifilter" ["${RMSTREE}/lib/rif/:${RMANTREE}/lib/plugins:@"]
+Option "searchpath" "string procedural" ["${RMSTREE}/lib/plugins/:${RMSTREE}/lib/plugins:${RMANTREE}/lib/plugins:@"]
+##rifcontrol insert begin -rif RLFInjector -rifend
+FrameBegin 1
+	Identity 
+	Option "user" "string pass_id" ["perspShape_Final"] "string pass_phase" ["/Job/Frames/Images"] "string pass_class" ["Final"] "string pass_flavor" [""] "string pass_crew" [""] "string pass_camera_name" ["perspShape"] "string pass_camera_flavor" [""] "string pass_layer" [""] "string renderer" ["RIS"] "int pass_features_trace" [1] "int input_color_profile" [0]
+	Option "shading" "int directlightingservices" [1]
+	Option "trace" "int maxdepth" [10]
+	PixelVariance 0.05
+	Option "bucket" "string order" ["spiral"]
+	Option "limits" "int[2] bucketsize" [16 16]
+	Option "trace" "float decimationrate" [1]
+	Option "hair" "float minwidth" [0.5]
+	Option "user" "int iesIgnoreWatts" [1]
+	Option "statistics" "int level" [1]
+	Option "statistics" "string filename" ["stdout"]
+	Option "statistics" "string xmlfilename" ["renderman/Flower/rib/0001/perspShape_Final.0001.xml"]
+	Option "limits" "color zthreshold" [0.996 0.996 0.996]
+	Option "limits" "color othreshold" [0.996 0.996 0.996]
+	Option "limits" "int texturememory" [4194304]
+	Option "limits" "int geocachememory" [2097152]
+	Option "limits" "int proceduralmemory" [0]
+	Option "limits" "int deepshadowtiles" [1000]
+	Option "limits" "int deepshadowmemory" [102400]
+	Option "limits" "int brickmemory" [10240]
+	Option "user" "float sceneUnits" [1]
+	Option "lpe" "string diffuse2" ["Diffuse"]
+	Option "lpe" "string diffuse3" ["Subsurface"]
+	Option "lpe" "string specular2" ["Specular"]
+	Option "lpe" "string specular3" ["RoughSpecular"]
+	Option "lpe" "string specular4" ["Clearcoat"]
+	Option "lpe" "string specular5" ["Iridescence"]
+	Option "lpe" "string specular6" ["Fuzz"]
+	Option "lpe" "string specular7" ["SingleScatter"]
+	Option "lpe" "string specular8" ["Glass"]
+	Option "limits" "int opacitycachememory" [4194304]
+	CropWindow 0 1 0 1
+	Hider "raytrace" "int adaptall" [0] "int incremental" [1] "string pixelfiltermode" ["weighted"] "int minsamples" [75] "int minextrasamples" [0] "int maxsamples" [64] "float darkfalloff" [0.025]
+	Integrator "PxrPathTracer" "PxrPathTracer" "int maxPathLength" [10] "int maxContinuationLength" [-1] "string sampleMode" ["bxdf"] "int numLightSamples" [1] "int numBxdfSamples" [1] "int numIndirectSamples" [1] "int numDiffuseSamples" [1] "int numSpecularSamples" [1] "int numSubsurfaceSamples" [1] "int numRefractionSamples" [1] "int allowCaustics" [0] "int accumOpacity" [0] "int rouletteDepth" [4] "float rouletteThreshold" [0.2] "int clampDepth" [2] "float clampLuminance" [10] "string imagePlaneSubset" ["rman__imageplane"]
+	Format 1920 1080 1
+	Display "renderman/Flower/images/Flower.exr" "openexr" "rgba" "string filter" ["gaussian"] "float[2] filterwidth" [2 2] "int[4] quantize" [0 0 0 0] "float dither" [0] "float[2] exposure" [1 1] "float[3] remap" [0 0 0]
+	#Camera perspShape
+	Clipping 0.1 10000
+	Projection "perspective" "fov" [54.4322]
+	ScreenWindow -1 1 -0.5625 0.5625
+	Shutter 0 0
+	ConcatTransform [ -0.834848 0.194926 0.514814 1.70671e-009  1.6973e-008 0.935207 -0.354101 -3.16629e-011  0.550481 0.29562 0.780756 -1.0252e-009  2.09022 -12.0096 46.4992 1 ]
+	Camera "world" "float[2] shutteropening" [0 1]
+	Option "user" "color camera_bg" [0 0 0] "float camera_bga" [0]
+	DisplayFilter "PxrBackgroundDisplayFilter" "background" "color backgroundColor" [0 0 0]
+	ResourceBegin 
+		WorldBegin 
+			##RLF ScopeBegin -name perspShape_Final -localbinding 1 -rlffilename renderman/Flower/rib/0001/perspShape_Final.0001.rlf -namespace 
+			ScopedCoordinateSystem "world_ref"
+			Attribute "visibility" "int transmission" [1] "int indirect" [1]
+			Bxdf "PxrDiffuse" "default" 
+			Attribute "user" "int shader_bindingstrength" [0]
+			Attribute "trace" "int maxdiffusedepth" [1] "int maxspeculardepth" [4] "int samplemotion" [1] "float autobias" [1] "float bias" [0.001] "int displacements" [1]
+			Attribute "dice" "string referencecamera" ["worldcamera"] "float minlength" [-1] "float micropolygonlength" [1] "int watertight" [0]
+			Attribute "procedural" "int reentrant" [1]
+			Attribute "displacementbound" "string coordinatesystem" ["shader"] "float sphere" [0]
+			AttributeBegin 
+				Attribute "identifier" "string name" ["PxrDiskLightShape1"]
+				Transform [ 1.28213 0 8.71244 0  5.65543 6.6988 -0.832261 0  -6.62742 5.71634 0.9753 0  -40.7762 44.8696 0 1 ]
+				Rotate 180 0 1 0
+				Scale 1 -1 1
+				Attribute "visibility" "int camera" [0]
+				Attribute "visibility" "int indirect" [0] "int transmission" [0]
+				Attribute "visibility" "int camera" [0]
+				Light "PxrDiskLight" "PxrDiskLightShape1" "float intensity" [0.730337] "float exposure" [15.7303] "color lightColor" [1 1 1] "int enableTemperature" [0] "float temperature" [6500] "float emissionFocus" [0] "color emissionFocusTint" [0 0 0] "float specular" [1] "float diffuse" [1] 
+					"float intensityNearDist" [0] "float coneAngle" [90] "float coneSoftness" [0] "string iesProfile" [""] "float iesProfileScale" [0] "int enableShadows" [1] "color shadowColor" [0 0 0] "float shadowDistance" [-1] "float shadowFalloff" [-1] "float shadowFalloffGamma" [1] "string shadowSubset" [""] "string shadowExcludeSubset" [""] 
+					"int areaNormalize" [1] "int traceLightPaths" [0] "int thinShadow" [1] "int fixedSampleCount" [0] "string lightGroup" [""] "float importanceMultiplier" [1] "__instanceid" ["PxrDiskLightShape1_0"]
+			AttributeEnd 
+			Illuminate "PxrDiskLightShape1" 1
+			AttributeBegin 
+				Attribute "identifier" "string name" ["PxrDiskLightShape2"]
+				Transform [ -8.67354 0.667933 1.36898 0  1.28229 7.47362 4.47786 0  -0.822179 4.6097 -7.45823 0  -3.59305 35.3136 -52.6003 1 ]
+				Rotate 180 0 1 0
+				Scale 1 -1 1
+				Attribute "visibility" "int camera" [0]
+				Attribute "visibility" "int indirect" [0] "int transmission" [0]
+				Attribute "visibility" "int camera" [0]
+				Light "PxrDiskLight" "PxrDiskLightShape2" "float intensity" [0.730337] "float exposure" [15.7303] "color lightColor" [1 1 1] "int enableTemperature" [0] "float temperature" [6500] "float emissionFocus" [0] "color emissionFocusTint" [0 0 0] "float specular" [1] "float diffuse" [1] 
+					"float intensityNearDist" [0] "float coneAngle" [90] "float coneSoftness" [0] "string iesProfile" [""] "float iesProfileScale" [0] "int enableShadows" [1] "color shadowColor" [0 0 0] "float shadowDistance" [-1] "float shadowFalloff" [-1] "float shadowFalloffGamma" [1] "string shadowSubset" [""] "string shadowExcludeSubset" [""] 
+					"int areaNormalize" [1] "int traceLightPaths" [0] "int thinShadow" [1] "int fixedSampleCount" [0] "string lightGroup" [""] "float importanceMultiplier" [1] "__instanceid" ["PxrDiskLightShape2_0"]
+			AttributeEnd 
+			Illuminate "PxrDiskLightShape2" 1
+			AttributeBegin 
+			AttributeEnd 
+			AttributeBegin 
+			AttributeEnd 
+			AttributeBegin 
+			AttributeEnd 
+			AttributeBegin 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["pSphere1"]
+				Attribute "identifier" "float id" [10]
+				ConcatTransform [ 0.382348 0.924018 0 0  -0.924018 0.382348 0 0  0 0 1 0  0 18.6496 0 1 ]
+				AttributeBegin 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pSphereShape1"]
+						Attribute "identifier" "float id" [22]
+						Sides 2
+						Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+						Attribute "shade" "string transmissionhitmode" ["shader"]
+						Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+						##RLF Inject SurfaceShading -attribute sets@,PxrDisney2SG,
+						TransformBegin 
+							Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Flower/rib/job/staticGeoCache.job.zip!renderman/Flower/rib/job/pSphereShape1.job.rib"] "float[6] bound" [-5.02556 5.00778 -4.2824 0.855726 -5.07662 4.95671] "int __immediatesubdivide" [0]
+						TransformEnd 
+					AttributeEnd 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["pHelix1"]
+				Attribute "identifier" "float id" [4]
+				ConcatTransform [ -0.790191 0 -0.612861 0  0 1 0 0  0.612861 0 -0.790191 0  4.29217 8.57754 -1.38428 1 ]
+				AttributeBegin 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pHelixShape1"]
+						Attribute "identifier" "float id" [16]
+						Sides 2
+						Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+						Attribute "shade" "string transmissionhitmode" ["shader"]
+						Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+						##RLF Inject SurfaceShading -attribute sets@,PxrDisney3SG,
+						TransformBegin 
+							Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Flower/rib/job/staticGeoCache.job.zip!renderman/Flower/rib/job/pHelixShape1.job.rib"] "float[6] bound" [-1.80852 1.80894 -8.81281 8.81281 -1.72399 1.80884] "int __immediatesubdivide" [0]
+						TransformEnd 
+					AttributeEnd 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["pPlane1"]
+				Attribute "identifier" "float id" [5]
+				ConcatTransform [ 4.99738 3.71729 -3.70057 0  -0.573851 0.817645 0.046391 0  3.1982 1.89174 6.21925 0  3.08085 7.44493 -0.630467 1 ]
+				AttributeBegin 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pPlaneShape1"]
+						Attribute "identifier" "float id" [17]
+						Sides 2
+						Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+						Attribute "shade" "string transmissionhitmode" ["shader"]
+						Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+						##RLF Inject SurfaceShading -attribute sets@,PxrDisney3SG,
+						TransformBegin 
+							Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Flower/rib/job/staticGeoCache.job.zip!renderman/Flower/rib/job/pPlaneShape1.job.rib"] "float[6] bound" [-0.158992 0.237733 -2.83413 0.398148 -0.166214 0.241715] "int __immediatesubdivide" [0]
+						TransformEnd 
+					AttributeEnd 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["pPlane2"]
+				Attribute "identifier" "float id" [6]
+				ConcatTransform [ -3.36172 -6.39257 0.565791 0  -0.880573 0.449892 -0.148957 0  0.697676 -0.998974 -7.14154 0  4.18812 13.1253 -2.70812 1 ]
+				AttributeBegin 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pPlaneShape2"]
+						Attribute "identifier" "float id" [18]
+						Sides 2
+						Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+						Attribute "shade" "string transmissionhitmode" ["shader"]
+						Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+						##RLF Inject SurfaceShading -attribute sets@,PxrDisney3SG,
+						TransformBegin 
+							Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Flower/rib/job/staticGeoCache.job.zip!renderman/Flower/rib/job/pPlaneShape2.job.rib"] "float[6] bound" [-0.158992 0.237733 -2.83413 0.398148 -0.166214 0.241715] "int __immediatesubdivide" [0]
+						TransformEnd 
+					AttributeEnd 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["PxrDiskLight1"]
+				Attribute "identifier" "float id" [1]
+				ConcatTransform [ 1.28213 0 8.71244 0  5.65543 6.6988 -0.832261 0  -6.62742 5.71634 0.9753 0  -40.7762 44.8696 0 1 ]
+				AttributeBegin 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["pPlane3"]
+				Attribute "identifier" "float id" [7]
+				ConcatTransform [ 51.3311 0 0 0  0 51.3311 0 0  0 0 51.3311 0  0 0 0 1 ]
+				AttributeBegin 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pPlaneShape3"]
+						Attribute "identifier" "float id" [19]
+						Sides 2
+						Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+						Attribute "shade" "string transmissionhitmode" ["shader"]
+						Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+						##RLF Inject SurfaceShading -attribute sets@,PxrDisney1SG,
+						TransformBegin 
+							Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Flower/rib/job/staticGeoCache.job.zip!renderman/Flower/rib/job/pPlaneShape3.job.rib"] "float[6] bound" [-0.5 0.5 -1.11022e-016 1.11022e-016 -0.5 0.5] "int __immediatesubdivide" [0]
+						TransformEnd 
+					AttributeEnd 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["pPlane4"]
+				Attribute "identifier" "float id" [8]
+				ConcatTransform [ 51.3311 0 -0 0  -0 1.13978e-014 -51.3311 0  0 51.3311 1.13978e-014 0  0 25.5476 25.021 1 ]
+				AttributeBegin 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pPlaneShape4"]
+						Attribute "identifier" "float id" [20]
+						Sides 2
+						Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+						Attribute "shade" "string transmissionhitmode" ["shader"]
+						Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+						##RLF Inject SurfaceShading -attribute sets@,PxrDisney1SG,
+						TransformBegin 
+							Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Flower/rib/job/staticGeoCache.job.zip!renderman/Flower/rib/job/pPlaneShape4.job.rib"] "float[6] bound" [-0.5 0.5 -1.11022e-016 1.11022e-016 -0.5 0.5] "int __immediatesubdivide" [0]
+						TransformEnd 
+					AttributeEnd 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["pPlane5"]
+				Attribute "identifier" "float id" [9]
+				ConcatTransform [ 1.13978e-014 0 -51.3311 0  -51.3311 1.13978e-014 -1.13978e-014 0  1.13978e-014 51.3311 0 0  25.7232 25.5476 0.384092 1 ]
+				AttributeBegin 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pPlaneShape5"]
+						Attribute "identifier" "float id" [21]
+						Sides 2
+						Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+						Attribute "shade" "string transmissionhitmode" ["shader"]
+						Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+						##RLF Inject SurfaceShading -attribute sets@,PxrDisney1SG,
+						TransformBegin 
+							Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Flower/rib/job/staticGeoCache.job.zip!renderman/Flower/rib/job/pPlaneShape5.job.rib"] "float[6] bound" [-0.5 0.5 -1.11022e-016 1.11022e-016 -0.5 0.5] "int __immediatesubdivide" [0]
+						TransformEnd 
+					AttributeEnd 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["PxrDiskLight2"]
+				Attribute "identifier" "float id" [2]
+				ConcatTransform [ -8.67354 0.667933 1.36898 0  1.28229 7.47362 4.47786 0  -0.822179 4.6097 -7.45823 0  -3.59305 35.3136 -52.6003 1 ]
+				AttributeBegin 
+				AttributeEnd 
+			AttributeEnd 
+			##RLF ScopeEnd -name perspShape_Final
+		WorldEnd 
+	ResourceEnd 
+	##streammarker 10
+FrameEnd 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<RenderManLookFile Version="1" Format="RenderMan Look Data" AssemblyName="perspShape_Final">
+    <InjectablePayloads>
+        <Payload Id="PxrDisney2SG" Label="" Source="1" Content="1"><![CDATA[##RenderMan RIB
+version 3.04
+Displacement "null" 
+Bxdf "PxrDisney" "PxrDisney2" "color baseColor" [0.8 0.0976 0.556864] "color emitColor" [0 0 0] "float subsurface" [0] "color subsurfaceColor" [0 0 0] "float metallic" [0.25] "float specular" [0.625] 
+	"float specularTint" [0] "float roughness" [0.1875] "float anisotropic" [0] "float sheen" [0] "float sheenTint" [0.625] "float clearcoat" [0.25] "float clearcoatGloss" [1] "normal bumpNormal" [0 0 0] "float presence" [1] "int inputAOV" [0] "__instanceid" ["PxrDisney2_0"]
+]]></Payload>
+        <Payload Id="PxrLMGlass3SG" Label="" Source="1" Content="1"><![CDATA[##RenderMan RIB
+version 3.04
+Displacement "null" 
+Bxdf "PxrLMGlass" "PxrLMGlass3" "int thin" [0] "float eta" [1.41] "color reflectionColor" [0.1923 1 0] "color refractionColor" [0.110765 0.576 0] "float roughness" [0.01] "float absorption" [0] "color transmissionColor" [0.476945 0.876 0.381936] 
+	"int shadows" [0] "normal bumpNormal" [0 0 0] "float presence" [1] "int inputAOV" [0] "__instanceid" ["PxrLMGlass3_0"]
+]]></Payload>
+        <Payload Id="PxrDisney1SG" Label="" Source="1" Content="1"><![CDATA[##RenderMan RIB
+version 3.04
+Displacement "null" 
+Bxdf "PxrDisney" "PxrDisney1" "color baseColor" [0.745 0.28161 0.53113] "color emitColor" [0 0 0] "float subsurface" [0.35] "color subsurfaceColor" [0.838 0.38129 0.767735] "float metallic" [0.0561798] "float specular" [1] 
+	"float specularTint" [0.382022] "float roughness" [0.494382] "float anisotropic" [1] "float sheen" [0.573034] "float sheenTint" [0.52809] "float clearcoat" [0.011236] "float clearcoatGloss" [1] "normal bumpNormal" [0 0 0] "float presence" [1] "int inputAOV" [0] "__instanceid" ["PxrDisney1_0"]
+]]></Payload>
+    </InjectablePayloads>
+    <TightBindings>
+        <Binding Key="pSphere1/pSphereShape1" PayloadId="PxrDisney2SG"/>
+        <Binding Key="pHelix1/pHelixShape1" PayloadId="PxrLMGlass3SG"/>
+        <Binding Key="pPlane1/pPlaneShape1" PayloadId="PxrLMGlass3SG"/>
+        <Binding Key="pPlane3/pPlaneShape3" PayloadId="PxrDisney1SG"/>
+        <Binding Key="pPlane2/pPlaneShape2" PayloadId="PxrLMGlass3SG"/>
+        <Binding Key="pPlane5/pPlaneShape5" PayloadId="PxrDisney1SG"/>
+        <Binding Key="pPlane4/pPlaneShape4" PayloadId="PxrDisney1SG"/>
+    </TightBindings>
+</RenderManLookFile>
